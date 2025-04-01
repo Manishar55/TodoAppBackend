@@ -4,6 +4,8 @@
 const { response } = require("express");
 const Todo=require("../models/Todo");
 
+
+//it contains the business logic => how to interact with the req
 //define route handler
 exports.createTodo = async(req, res)=>{
     try{
@@ -21,7 +23,6 @@ exports.createTodo = async(req, res)=>{
                 message:'Entry created successfully'
             }
         )
-
     }
     catch(err){
         console.error(err);
@@ -30,7 +31,6 @@ exports.createTodo = async(req, res)=>{
             success:false,
             data:"Internal server error",
             message:err.message,
-        });
-    
+        });  
     }
 }
