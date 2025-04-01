@@ -12,11 +12,9 @@ require("dotenv").config();
 
 //configuration for connecting the database
 //it will establish a connection between your app & database
+
 const dbConnect = ()=>{
-    mongoose.connect(process.env.DATABASE_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+    mongoose.connect(process.env.DATABASE_URL)
     .then(()=>console.log('DB connecton successful'))
     .catch((error)=>{
         console.log('Issue in DB connection');
@@ -26,3 +24,20 @@ const dbConnect = ()=>{
 }
 
 module.exports=dbConnect;
+
+
+
+
+
+// const dbConnect = ()=>{
+//     mongoose.connect(process.env.DATABASE_URL, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//     })
+//     .then(()=>console.log('DB connecton successful'))
+//     .catch((error)=>{
+//         console.log('Issue in DB connection');
+//         console.log(error.message);
+//         process.exit(1);
+//     });
+// }
