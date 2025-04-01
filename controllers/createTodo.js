@@ -1,7 +1,6 @@
 
 //creating a todo object & inetrting it into db
 
-const { response } = require("express");
 const Todo=require("../models/Todo");
 
 
@@ -13,7 +12,7 @@ exports.createTodo = async(req, res)=>{
         const {title, description}=req.body;
 
         //create a new Todo obj and insert into DB
-        const res=await Todo.create({title, description});
+        const response=await Todo.create({title, description});
 
         //send a json response with a success flag
         res.status(200).json(
@@ -22,7 +21,7 @@ exports.createTodo = async(req, res)=>{
                 data:response,
                 message:'Entry created successfully'
             }
-        )
+        );
     }
     catch(err){
         console.error(err);
